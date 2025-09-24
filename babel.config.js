@@ -13,6 +13,7 @@ module.exports = {
     ],
     'inline-dotenv',
     '@babel/plugin-transform-export-namespace-from',
+    'nativewind/babel',
     'react-native-worklets/plugin', // need to be the last plugin
   ],
   presets: ['module:@react-native/babel-preset'],

@@ -1,107 +1,69 @@
-import { useTranslation } from 'react-i18next';
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { useState } from 'react';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-import { useI18n } from '@/hooks';
-import { useTheme } from '@/theme';
-
-import { AssetByVariant, IconByVariant, Skeleton } from '@/components/atoms';
 import { SafeScreen } from '@/components/templates';
 
-function Home() {
-  const { t } = useTranslation();
-  const { toggleLanguage } = useI18n();
-
-  const {
-    backgrounds,
-    changeTheme,
-    colors,
-    components,
-    fonts,
-    gutters,
-    layout,
-    variant,
-  } = useTheme();
-
-  const onChangeTheme = () => {
-    changeTheme(variant === 'default' ? 'dark' : 'default');
-  };
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <SafeScreen>
-      <ScrollView>
-        <View
-          style={[
-            layout.justifyCenter,
-            layout.itemsCenter,
-            gutters.marginTop_80,
-          ]}
-        >
-          <View
-            style={[layout.relative, backgrounds.gray100, components.circle250]}
+      <View className="flex-1 bg-white px-6 justify-center">
+        <View className="items-center mb-12">
+          <Text className="text-4xl font-extrabold text-indigo-600 tracking-tight">
+            Upgrd
+          </Text>
+          <Text className="text-base text-gray-500 mt-2">
+            Simplifique suas conquistas
+          </Text>
+        </View>
+
+        <View className="mb-4 w-full">
+          <Text className="text-gray-700 mb-1 font-medium">E-mail</Text>
+          <TextInput
+            autoCapitalize="none"
+            className="w-full bg-gray-100 text-gray-900 rounded-lg px-4 py-3 border border-gray-200 focus:border-indigo-500"
+            keyboardType="email-address"
+            onChangeText={setEmail}
+            placeholder="Digite seu e-mail"
+            placeholderTextColor="#9ca3af"
+            value={email}
           />
-
-          <View style={[layout.absolute, gutters.paddingTop_80]}>
-            <AssetByVariant
-              path="tom"
-              resizeMode="contain"
-              style={{ height: 300, width: 300 }}
-            />
-          </View>
         </View>
 
-        <View style={[gutters.paddingHorizontal_32, gutters.marginTop_40]}>
-          <View style={[gutters.marginTop_40]}>
-            <Text style={[fonts.size_40, fonts.gray800, fonts.bold]}>
-              {t('screen_example.title')}
+        <View className="mb-6 w-full">
+          <Text className="text-gray-700 mb-1 font-medium">Senha</Text>
+          <TextInput
+            className="w-full bg-gray-100 text-gray-900 rounded-lg px-4 py-3 border border-gray-200 focus:border-indigo-500"
+            onChangeText={setPassword}
+            placeholder="Digite sua senha"
+            placeholderTextColor="#9ca3af"
+            secureTextEntry
+            value={password}
+          />
+          <TouchableOpacity className="mt-2">
+            <Text className="text-indigo-600 text-sm font-medium">
+              Esqueci minha senha
             </Text>
-            <Text
-              style={[fonts.size_16, fonts.gray200, gutters.marginBottom_40]}
-            >
-              {t('screen_example.description')}
-            </Text>
-          </View>
-
-          <View
-            style={[
-              layout.row,
-              layout.justifyBetween,
-              layout.fullWidth,
-              gutters.marginTop_16,
-            ]}
-          >
-            <Skeleton
-              height={64}
-              style={{ borderRadius: components.buttonCircle.borderRadius }}
-              width={64}
-            >
-              <TouchableOpacity
-                style={[components.buttonCircle, gutters.marginBottom_16]}
-                testID="fetch-user-button"
-              >
-                <IconByVariant path="send" stroke={colors.purple500} />
-              </TouchableOpacity>
-            </Skeleton>
-
-            <TouchableOpacity
-              onPress={onChangeTheme}
-              style={[components.buttonCircle, gutters.marginBottom_16]}
-              testID="change-theme-button"
-            >
-              <IconByVariant path="theme" stroke={colors.purple500} />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={toggleLanguage}
-              style={[components.buttonCircle, gutters.marginBottom_16]}
-              testID="change-language-button"
-            >
-              <IconByVariant path="language" stroke={colors.purple500} />
-            </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
         </View>
-      </ScrollView>
+
+        <TouchableOpacity className="w-full bg-indigo-500 py-3 rounded-lg active:bg-indigo-600">
+          <Text className="text-center text-white text-lg font-semibold">
+            Entrar
+          </Text>
+        </TouchableOpacity>
+
+        <View className="flex-row justify-center mt-8">
+          <Text className="text-gray-600">Não tem uma conta? </Text>
+          <TouchableOpacity>
+            <Text className="text-indigo-600 font-semibold">Criar conta</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </SafeScreen>
   );
 }
 
-export default Home;
+export default Login;
