@@ -18,7 +18,7 @@ export default tseslint.config(
   eslint.configs.recommended,
   tseslint.configs.strictTypeChecked,
   tseslint.configs.stylisticTypeChecked,
-  unicorn.configs.all,
+  // unicorn.configs.all,
   perfectionist.configs['recommended-alphabetical'],
   importPlugin.flatConfigs.react,
   importPlugin.flatConfigs['react-native'],
