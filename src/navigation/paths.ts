@@ -1,3 +1,5 @@
 export const enum Paths {
-  Initial = 'initial',
+  Initial = 'Initial',
+  SignIn = 'SignIn',
+  SignUp = 'SignUp',
 }

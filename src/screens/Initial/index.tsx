@@ -1,9 +1,10 @@
 import React from 'react';
 import { StatusBar, View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import LinearGradient from 'react-native-linear-gradient';
 import { IconEmail, IconGoogle, IconFacebook } from '@/assets/icons';
 import { Button, Slider } from '@/components';
+import { Paths } from '@/navigation/paths';
+import LinearGradient from 'react-native-linear-gradient';
 
 const Initial = () => {
   const navigation = useNavigation();
@@ -27,17 +28,19 @@ const Initial = () => {
 
         <View className="mt-6 px-6">
           <Button
+            size="md"
             variant="primary"
             borderRadius="xl"
             text="Continue com seu e-mail"
             icon={<IconEmail />}
-            onPress={() => handleNavigate('SignIn')}
+            onPress={() => handleNavigate(Paths.SignIn)}
           />
         </View>
 
         <View className="flex-row px-6 mt-4 space-x-3">
           <View className="flex-1">
             <Button
+              size="md"
               variant="outline"
               borderRadius="xl"
               icon={<IconGoogle />}
@@ -47,6 +50,7 @@ const Initial = () => {
           </View>
           <View className="flex-1">
             <Button
+              size="md"
               variant="outline"
               borderRadius="xl"
               icon={<IconFacebook />}
@@ -56,7 +60,7 @@ const Initial = () => {
           </View>
         </View>
 
-        <View className="px-6 py-6">
+        <View className="px-6 py-12">
           <Text className="text-center text-xs text-gray-300">
             Ao continuar, você concorda com os Termos de Serviço e Política de
             Privacidade da Oppen.
