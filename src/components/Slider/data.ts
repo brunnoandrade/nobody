@@ -1,7 +1,7 @@
 export const data = [
   {
     id: '1',
-    text: 'Rotina,\nAgora,\ndia leve',
+    text: 'Rotina,\nConsistência,\nFoco',
     img: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80',
   },
   {

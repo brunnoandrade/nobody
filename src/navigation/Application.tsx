@@ -7,6 +7,7 @@ import { useTheme } from '@/theme';
 import { Platform } from 'react-native';
 import { IconArrowBack } from '@/assets/icons';
 import Public from './Public';
+import Private from './Private';
 
 const RootStack = createStackNavigator<RootStackParamList>();
 
@@ -21,14 +22,14 @@ function ApplicationNavigator() {
 
   const paddingLeft = Platform.select({ ios: 16, android: 0 });
 
-  const routes = Public;
+  const routes = false ? Public : Private;
 
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={navigationTheme}>
         <RootStack.Navigator
           key={variant}
-          initialRouteName={Paths.Initial}
+          initialRouteName={Paths.Dashboard}
           screenOptions={{
             headerTitle: '',
             headerBackTitle: '',
